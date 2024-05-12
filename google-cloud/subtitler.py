@@ -6,6 +6,8 @@ from google.api_core.client_options import ClientOptions
 from google.cloud.speech_v2 import SpeechClient
 from google.cloud.speech_v2.types import cloud_speech
 
+gcp_project_id = "protean-vigil-368221"
+gcp_bucket_name = "mahdavifar"
 input_video = "input.mp4"
 loglevel = "error"
 
@@ -113,8 +115,8 @@ def run():
     extracted_audio = extract_audio()
 
     print("\nTranscribing the auido...\n")
-    # subtitle_file = "subtitle.srt"
-    subtitle_file = transcribe("protean-vigil-368221", "mahdavifar", "mono.wav")
+    subtitle_file = "subtitle.srt"
+    # subtitle_file = transcribe(gcp_project_id, gcp_bucket_name, "mono.wav")
 
     print("\nAdding the subtitle to the video...\n")
     add_subtitle_to_video(
@@ -126,6 +128,6 @@ def run():
     print("\nRemoving extra files generated...\n")
     os.remove("stereo.wav")
     os.remove("mono.wav")
-    os.remove(f"subtitle.srt")
+    # os.remove(f"subtitle.srt")
 
 run()
