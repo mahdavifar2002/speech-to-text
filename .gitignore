@@ -1,8 +1,9 @@
 ## Project specific
 
-# video and audio files
+# multimedia files
 *.mp4
 *.wav
+*.srt
 
 
 ## General for Python
